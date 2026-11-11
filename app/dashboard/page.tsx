@@ -9,7 +9,11 @@ import {
   Users, X, Zap,
 } from 'lucide-react'
 
-const image = (id: string, width = 500) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`
+const image = (id: string, _width = 500) => {
+  if (id.includes('photo-153452') || id.includes('photo-150064') || id.includes('photo-152915')) return '/images/moonwitness-portrait-sketch.png'
+  if (id.includes('photo-146233') || id.includes('photo-151960')) return '/images/moonwitness-pencil-sketch.png'
+  return '/images/moonwitness-city-sketch.png'
+}
 const nav = [
   { label: 'Command Center', href: '/dashboard', icon: Home }, { label: 'Story Studio', href: '/projects', icon: PenTool },
   { label: 'Signal Ledger', href: '/mission-control', icon: Activity }, { label: 'Poster Forge', href: '/projects', icon: Image },

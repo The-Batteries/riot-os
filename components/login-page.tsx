@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Crown, Eye, EyeOff, Globe2, LockKeyhole, Mail } from 'lucide-react'
 
-const loginArtwork = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-XwpzOH9s36CYCIXGo1nOkBUJTgUcgb.png'
+const loginArtwork = '/images/moonwitness-pencil-sketch.png'
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)

@@ -28,5 +28,5 @@ export function MoonwitnessShell({ active, children }: { active: string; childre
 }
 
 export function PageHero({ title, accent, description, image, index }: { title: string; accent: string; description: string; image: string; index: string }) {
-  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(5,5,8,.96) 0%, rgba(5,5,8,.75) 42%, rgba(5,5,8,.08) 100%), url('${image}')` }}><div className="mw-inner-copy"><span className="mw-kicker"><i/> THE MOONWITNESS NETWORK · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">PLAN&nbsp; // &nbsp;CREATE&nbsp; // &nbsp;CONNECT&nbsp; // &nbsp;AMPLIFY</span></div><span className="mw-hero-index">MW / {index}</span></section>
+  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(241,235,221,.97) 0%, rgba(241,235,221,.84) 43%, rgba(241,235,221,.1) 100%), url('${image}')` }}><div className="mw-inner-copy"><span className="mw-kicker"><i/> THE MOONWITNESS NETWORK · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">PLAN&nbsp; // &nbsp;CREATE&nbsp; // &nbsp;CONNECT&nbsp; // &nbsp;AMPLIFY</span></div><span className="mw-hero-index">MW / {index}</span></section>
 }
