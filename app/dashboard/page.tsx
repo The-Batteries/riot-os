@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { CloudInfrastructure } from '@/components/cloud-infrastructure'
+import { CloudServiceSubmenu } from '@/components/cloud-service-menu'
 import {
   Activity, AlertTriangle, Archive, ArrowDownRight, ArrowRight, ArrowUpRight,
   Bell, BookOpen, CheckCircle2, ChevronDown, CirclePlus, Cloud, Compass, Crown, Eye,
@@ -60,6 +61,7 @@ export default function Page() {
   const [query, setQuery] = useState('')
   const [notice, setNotice] = useState('')
   const [mobileNav, setMobileNav] = useState(false)
+  const [infraExpanded, setInfraExpanded] = useState(false)
   const filteredStories = useMemo(() => stories.filter(s => s.title.toLowerCase().includes(query.toLowerCase())), [query])
   const notify = (text: string) => { setNotice(text); window.setTimeout(() => setNotice(''), 2600) }
   return (
@@ -67,7 +69,7 @@ export default function Page() {
       <aside className={`sidebar ${mobileNav ? 'sidebar-open' : ''}`}>
         <a className="brand" href="/" aria-label="Moonwitness R!OT OS home"><span className="brand-crown"><Crown size={30}/></span><span>MOONWITNESS</span><small>R!OT OS</small></a>
         <div className="side-rule"/>
-        <nav aria-label="Main navigation">{nav.map(({ label, href, icon: Icon, badge }) => <a key={label} href={href} onClick={() => { setActive(label); setMobileNav(false) }} className={`nav-item ${active === label ? 'selected' : ''}`}><Icon size={17}/><span>{label}</span>{badge && <b className="nav-badge">{badge}</b>}</a>)}</nav>
+        <nav aria-label="Main navigation">{nav.map(({ label, href, icon: Icon, badge }) => label === 'Cloud / Infra' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('Cloud / Infra') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${infraExpanded ? 'Collapse' : 'Expand'} Cloud / Infra menu`} aria-expanded={infraExpanded} aria-controls="board-cloud-services" onClick={() => setInfraExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{infraExpanded && <div id="board-cloud-services"><CloudServiceSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : <a key={label} href={href} onClick={() => { setActive(label); setMobileNav(false) }} className={`nav-item ${active === label ? 'selected' : ''}`}><Icon size={17}/><span>{label}</span>{badge && <b className="nav-badge">{badge}</b>}</a>)}</nav>
         <div className="side-bottom"><div className="online-dot"/> <span>CHAOS: BEAUTIFULLY MANAGED</span><button aria-label="Settings"><Settings2 size={16}/></button></div>
       </aside>
       {mobileNav && <button className="scrim" aria-label="Close menu" onClick={() => setMobileNav(false)}/>}
