@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Activity, Archive, Bell, Compass, Crown, FolderKanban, Home, Menu, PenTool, Search, Settings2, Users, X } from 'lucide-react'
+import { Activity, Archive, Bell, Cloud, Compass, Crown, FolderKanban, Home, Menu, PenTool, Search, Settings2, Users, X } from 'lucide-react'
 
 const items = [
   { label: 'R!OT Board', href: '/dashboard', icon: Home },
+  { label: 'Cloud / Infra', href: '/infrastructure', icon: Cloud },
   { label: 'Project Pit', href: '/projects', icon: FolderKanban },
   { label: 'Task Riot', href: '/mission-control', icon: Compass },
   { label: 'The Workshop', href: '/projects', icon: PenTool },

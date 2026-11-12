@@ -1,9 +1,10 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { CloudInfrastructure } from '@/components/cloud-infrastructure'
 import {
   Activity, AlertTriangle, Archive, ArrowDownRight, ArrowRight, ArrowUpRight,
-  Bell, BookOpen, CheckCircle2, ChevronDown, CirclePlus, Compass, Crown, Eye,
+  Bell, BookOpen, CheckCircle2, ChevronDown, CirclePlus, Cloud, Compass, Crown, Eye,
   FileImage, Filter, Globe2, Home, Image, Layers3, Menu, MessageSquare,
   MoreHorizontal, PenTool, Search, Send, Settings2, ShieldAlert, Sparkles,
   Users, X, Zap,
@@ -15,7 +16,7 @@ const image = (id: string, _width = 500) => {
   return '/images/riot-zine-hero.png'
 }
 const nav = [
-  { label: 'R!OT Board', href: '/dashboard', icon: Home }, { label: 'Project Pit', href: '/projects', icon: PenTool },
+  { label: 'R!OT Board', href: '/dashboard', icon: Home }, { label: 'Cloud / Infra', href: '/infrastructure', icon: Cloud }, { label: 'Project Pit', href: '/projects', icon: PenTool },
   { label: 'Activity Feed', href: '/mission-control', icon: Activity }, { label: 'Asset Stash', href: '/projects', icon: Image },
   { label: 'The Posse', href: '/projects', icon: Users }, { label: 'Stand-up', href: '/mission-control', icon: MessageSquare },
   { label: 'The Receipts', href: '/projects', icon: Archive }, { label: 'Next Up', href: '/mission-control', icon: CirclePlus, badge: '12' },
@@ -93,6 +94,7 @@ export default function Page() {
             <Panel title="WHERE THE RIOT LANDED" icon={Globe2} action="CHECK THE DAMAGE" className="reach-panel"><div className="reach-content"><div className="reach-map"><div className="map-lines"/><div className="map-dot d1"/><div className="map-dot d2"/><div className="map-dot d3"/><div className="map-dot d4"/><div className="map-dot d5"/><div className="map-legend"><span><i className="pink-bg"/> STORIES TRAVEL</span><span><i className="blue-bg"/> PEOPLE CONNECT</span></div></div><div className="reach-number"><span>THIS MONTH</span><b>2.4M</b><strong><ArrowUpRight size={13}/> +40%</strong><small>across 56 countries</small></div></div><div className="region-bars">{[['Southeast Asia','38%'],['East Africa','22%'],['South America','18%'],['Europe','12%']].map(([name,val],i)=><div key={name}><span>{name}</span><i><b style={{width:val,background:['#ff3b98','#19a7ff','#ffd52e','#39e5b2'][i]}}/></i><small>{val}</small></div>)}</div></Panel>
             <Panel title="THE RECEIPTS" icon={Archive} action="DIG THROUGH IT" className="archive-panel"><p className="panel-subtitle">Every win. Every weird detour. Kept.</p>{[['Field reports','1,024 items','photo-1529156069898-49953e39b3ac'],['Photo archive','6,932 items','photo-1531058020387-3be344556be6'],['Video archive','2,119 items','photo-1519608487953-e999c86e7455'],['Audio archive','839 items','photo-1470252649378-9c29740c9fa8']].map(([name,count,src])=><button className="archive-row" key={name} onClick={() => notify(`${name} opened`)}><img src={image(src,100)} alt=""/><span>{name}</span><small>{count}</small><ArrowRight size={13}/></button>)}</Panel>
           </section>
+          <CloudInfrastructure />
           <footer className="footer"><span>© MOONWITNESS / R!OT OS</span><span>ANTI-MANAGEMENT MANAGEMENT</span><span><i className="online-dot"/> CHAOS: PRODUCTIVE ENOUGH</span></footer>
         </div>
       </div>
