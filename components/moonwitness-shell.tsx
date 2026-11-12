@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Activity, Archive, Bell, BrainCircuit, ChevronDown, CircleDollarSign, Cloud, Compass, Crown, FolderKanban, Globe, Home, Landmark, GraduationCap, Menu, Radio, Network, Headphones, PenTool, Search, Settings2, TrendingUp, Users, X } from 'lucide-react'
+import { Activity, Archive, Bell, BrainCircuit, ChevronDown, CircleDollarSign, Cloud, Compass, Crown, FolderKanban, Globe, Home, Landmark, GraduationCap, BookOpen, Menu, Radio, Network, Headphones, PenTool, Search, Settings2, TrendingUp, Users, X } from 'lucide-react'
 import { CloudServiceSubmenu } from '@/components/cloud-service-menu'
 import { IspTelcoSubmenu } from '@/components/isp-telco-menu'
 import { CustomerOpsSubmenu } from '@/components/customer-ops-menu'
@@ -23,6 +23,7 @@ const items = [
   { label: 'World Monitor', href: '/world-monitor', icon: Globe },
   { label: 'Civic / Governance', href: '/civic-intelligence', icon: Landmark },
   { label: 'Learning / Knowledge', href: '/learning-knowledge', icon: GraduationCap },
+  { label: 'Faith / Sacred Knowledge', href: '/faith-sacred-knowledge', icon: BookOpen },
   { label: 'Comms / Radio', href: '/comms', icon: Radio },
   { label: 'Project Pit', href: '/projects', icon: FolderKanban },
   { label: 'Task Riot', href: '/mission-control', icon: Compass },
