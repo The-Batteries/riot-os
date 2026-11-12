@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 import { ArrowUpRight, Briefcase, Building2, CalendarClock, CheckCircle2, CircleAlert, Clock3, FileText, Laptop2, Search, ShieldCheck, Users } from 'lucide-react'
 
 type AttendanceStatus = 'On site' | 'Remote' | 'Late' | 'On leave'
@@ -60,14 +61,14 @@ export function WorkforceOperationsHub() {
 
   return (
     <div className="work-ops">
-      <header className="work-page-heading">
-        <div>
-          <span className="work-kicker"><i /> R!OT OPS / PEOPLE SYSTEMS</span>
-          <h1>PEOPLE, <em>RHYTHM,</em> WORK</h1>
-          <p>A privacy-first office workspace for employee directory, attendance overview, and everyday HRD coordination.</p>
-        </div>
-        <div className="work-demo-badge"><span>SYNTHETIC DATA</span><b>NO LIVE EMPLOYEES</b><small>Sample records · no real clocking</small></div>
-      </header>
+      <RiotModuleHeading
+        className="work-page-heading"
+        kickerClassName="work-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / PEOPLE SYSTEMS</>}
+        title={<>PEOPLE, <em>RHYTHM,</em> WORK</>}
+        description="A privacy-first office workspace for employee directory, attendance overview, and everyday HRD coordination."
+        notice={<div className="work-demo-badge"><span>SYNTHETIC DATA</span><b>NO LIVE EMPLOYEES</b><small>Sample records · no real clocking</small></div>}
+      />
 
       <section className="work-overview" aria-label="Sample work and attendance overview">
         <div className="work-overview-copy"><span className="work-index">00 / TODAY'S SAMPLE SNAPSHOT</span><h2>People operations, in one view</h2><p>Attendance and HRD indicators below are fictional and for interface demonstration only.</p><span className="work-snapshot-tag"><ShieldCheck aria-hidden="true" /> PRIVACY-SAFE DEMO</span></div>

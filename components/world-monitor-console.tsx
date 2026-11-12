@@ -5,6 +5,7 @@ import { ArrowDownRight, ArrowUpRight, CloudLightning, Flame, Globe2, Radio, Shi
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from 'recharts'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
 import { WorldMap } from '@/components/world-map'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 type SignalCategory = 'conflict' | 'weather' | 'trend' | 'security'
 type Filter = 'all' | SignalCategory
@@ -62,14 +63,14 @@ export function WorldMonitorConsole() {
 
   return (
     <div className="world-monitor">
-      <header className="world-monitor-heading">
-        <div>
-          <span className="world-monitor-kicker"><i /> R!OT INTELLIGENCE / GLOBAL DESK</span>
-          <h1>WORLD <em>MONITOR</em></h1>
-          <p>One dashboard for the signals moving the world: trends, instability, weather, and more.</p>
-        </div>
-        <div className="world-monitor-demo"><span>DEMO SNAPSHOT</span><b>Sample data · not live</b><small>Source feeds not connected</small></div>
-      </header>
+      <RiotModuleHeading
+        className="world-monitor-heading"
+        kickerClassName="world-monitor-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT INTELLIGENCE / GLOBAL DESK</>}
+        title={<>WORLD <em>MONITOR</em></>}
+        description="One dashboard for the signals moving the world: trends, instability, weather, and more."
+        notice={<div className="world-monitor-demo"><span>DEMO SNAPSHOT</span><b>Sample data · not live</b><small>Source feeds not connected</small></div>}
+      />
 
       <section className="world-monitor-stats" aria-label="Sample global indicators">
         <article className="world-stat-card"><div><span>GLOBAL SIGNALS</span><Radio aria-hidden="true" /></div><strong>126</strong><small><ArrowUpRight aria-hidden="true" /> 18% vs. prior sample</small></article>

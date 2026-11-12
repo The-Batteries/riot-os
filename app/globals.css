@@ -2,6 +2,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+@import './riot-design-system.css';
 @custom-variant dark (&:is(.dark *));
 @theme inline { --color-background: var(--background); --color-foreground: var(--foreground); --font-sans: 'Space Grotesk', sans-serif; }
 :root{--background:#090a0b;--foreground:#f5f1e9;--ink:#090a0b;--paper:#f2eee4;--pink:#ff3194;--blue:#11a9ff;--yellow:#ffd52e;--green:#35e4aa;--line:rgba(242,238,228,.15);--muted:#8f9196;font-family:'Space Grotesk',sans-serif;color-scheme:dark}
@@ -70,7 +71,7 @@ body{background-color:#090909;background-image:radial-gradient(ellipse at 14% 22
 .nav-item{text-decoration:none}.mw-wordmark>svg{width:28px;height:28px;color:#11a9ff;vertical-align:middle;margin-right:4px}.mw-app-brand>span>svg{width:35px;height:35px}.mw-crumb>span{display:flex}.mw-crumb>span>svg{width:20px;height:20px}.mw-login-wordmark{display:flex;align-items:center;gap:6px}.mw-login-wordmark>svg{color:#11a9ff;width:25px;height:25px}.mw-login-crown{display:block}.mw-login-crown>svg{width:28px;height:28px}.mw-login-divider>svg{width:16px;height:16px}.mw-project-body h2 .mw-project-crown{width:22px;height:22px;flex:0 0 auto;color:#ffd52e}.mw-op-crown{width:24px;height:24px;flex:0 0 auto;margin-left:auto;color:#ffd52e}.mw-operation-card>svg:last-child:not(.mw-op-crown){margin-left:0}.mw-orbit-globe span{position:absolute;inset:auto;display:grid;place-items:center;width:100%;height:100%;font:initial}.mw-orbit-globe span svg{width:42px;height:42px;color:#fff}
 
 /* Pencil-and-paper art direction */
-:root{--background:#eee7d9;--foreground:#302c25;--ink:#302c25;--paper:#f5efe2;--pink:#a96068;--blue:#6e8584;--yellow:#b69557;--green:#718268;--line:rgba(56,50,42,.27);font-family:'Kalam','Patrick Hand',cursive;color-scheme:light}
+:root{--background:#eee7d9;--foreground:#302c25;--ink:#302c25;--paper:#f5efe2;--pink:#a96068;--blue:#6e8584;--yellow:#b69557;--green:#718268;--line:rgba(56,50,42,.27);--riot-paper:#eee7d9;--riot-surface:#f5efe2;--riot-surface-raised:#e7dece;--riot-ink:#302c25;--riot-muted:#625c52;--riot-line:rgba(62,56,47,.3);--riot-rose:#a96068;--riot-teal:#627e7c;--riot-ochre:#a3834f;--riot-sage:#718268;--riot-shadow:2px 3px 0 rgba(68,59,48,.2);font-family:'Kalam','Patrick Hand',cursive;color-scheme:light}
 html,body{background:#eee7d9;color:#302c25;font-family:'Kalam','Patrick Hand',cursive}
 body{background-image:repeating-linear-gradient(0deg,rgba(70,61,48,.022) 0 1px,transparent 1px 5px),radial-gradient(ellipse at 14% 18%,rgba(162,125,103,.06),transparent 32%)}
 .app-shell,.mw-landing,.mw-app-shell,.mw-login-page{background:transparent;color:#302c25;font-family:'Kalam','Patrick Hand',cursive}

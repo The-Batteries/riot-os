@@ -4,18 +4,19 @@ import { Activity, Bell, Radio, RadioTower, Users, Webhook } from 'lucide-react'
 import { CommsChatPanel } from '@/components/comms-chat-panel'
 import { CommsOperationsPanel } from '@/components/comms-operations-panel'
 import { CommsRadioPanel } from '@/components/comms-radio-panel'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 export function CommsHub() {
   return (
     <div className="comms-hub">
-      <header className="comms-page-heading">
-        <div>
-          <span className="comms-kicker"><i /> R!OT OPS / SIGNAL ROOM</span>
-          <h1>COMMS <em>WITHOUT THE LAG</em></h1>
-          <p>Radio, crew chat, webhooks, notifications and pub/sub — one signal desk.</p>
-        </div>
-        <div className="comms-demo-banner"><span>UI PROTOTYPE</span><b>SIMULATED ACTIVITY</b><small>No network or audio connection</small></div>
-      </header>
+      <RiotModuleHeading
+        className="comms-page-heading"
+        kickerClassName="comms-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / SIGNAL ROOM</>}
+        title={<>COMMS <em>WITHOUT THE LAG</em></>}
+        description="Radio, crew chat, webhooks, notifications and pub/sub — one signal desk."
+        notice={<div className="comms-demo-banner"><span>UI PROTOTYPE</span><b>SIMULATED ACTIVITY</b><small>No network or audio connection</small></div>}
+      />
 
       <section className="comms-stat-grid" aria-label="Mock communications summary">
         <article className="comms-stat-card"><div><span>CREW ONLINE</span><Users aria-hidden="true" /></div><strong>08</strong><small><i /> Sample presence only</small></article>

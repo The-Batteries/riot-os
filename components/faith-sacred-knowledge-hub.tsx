@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { BookOpen, CircleAlert, Globe, HandHeart, History, Landmark, Languages, MapPin, Network, ScrollText, ShieldCheck, Sparkles, Users } from 'lucide-react'
 import type { FaithDomain } from '@/components/faith-domain-panel'
 import { FaithDomainPanel } from '@/components/faith-domain-panel'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 const themes = ['All themes', 'Traditions', 'Corpus', 'Prophetic history', 'Theology', 'Heritage', 'Charity']
 
@@ -53,14 +54,14 @@ export function FaithSacredKnowledgeHub() {
 
   return (
     <div className="faith-hub">
-      <header className="faith-page-heading">
-        <div>
-          <span className="faith-kicker"><i /> R!OT OPS / FAITH + SACRED KNOWLEDGE</span>
-          <h1>MEANING, <em>MEMORY,</em> CARE</h1>
-          <p>A respectful index for faith traditions, sacred texts, prophetic histories, theology, heritage, and charitable service.</p>
-        </div>
-        <div className="faith-demo-badge"><span>NEUTRAL PROTOTYPE</span><b>NO BELIEF PROFILES</b><small>Sample catalogue · no live sources</small></div>
-      </header>
+      <RiotModuleHeading
+        className="faith-page-heading"
+        kickerClassName="faith-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / FAITH + SACRED KNOWLEDGE</>}
+        title={<>MEANING, <em>MEMORY,</em> CARE</>}
+        description="A respectful index for faith traditions, sacred texts, prophetic histories, theology, heritage, and charitable service."
+        notice={<div className="faith-demo-badge"><span>NEUTRAL PROTOTYPE</span><b>NO BELIEF PROFILES</b><small>Sample catalogue · no live sources</small></div>}
+      />
 
       <section className="faith-overview" aria-label="Faith and sacred knowledge overview">
         <div className="faith-overview-copy"><span className="faith-index">00 / KNOWLEDGE FRAME</span><h2>Respect without ranking</h2><p>Record provenance and context—not religious truth, personal belief, or community standing.</p><span className="faith-scope"><Network aria-hidden="true" /> 6 connected topic areas</span></div>

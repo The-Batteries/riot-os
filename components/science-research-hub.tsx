@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { Atom, CircleAlert, Database, Dna, FlaskConical, Orbit, Search, ShieldCheck, Sparkles } from 'lucide-react'
 import type { ScienceDomain } from '@/components/science-domain-panel'
 import { ScienceDomainPanel } from '@/components/science-domain-panel'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 const focusAreas = ['All systems', 'Universe', 'Physics', 'Biology', 'R&D lab']
 
@@ -43,10 +44,14 @@ export function ScienceResearchHub() {
 
   return (
     <div className="science-hub">
-      <header className="science-page-heading">
-        <div><span className="science-kicker"><i /> R!OT OPS / SCIENCE + RESEARCH</span><h1>MATTER, <em>ORBIT,</em> LIFE</h1><p>A research workspace for cosmic systems, physics, biology, and responsible R&amp;D project discovery.</p></div>
-        <div className="science-demo-badge"><span>SYNTHETIC RESEARCH DATA</span><b>NO LIVE LAB SYSTEMS</b><small>Sample catalogue · not scientific results</small></div>
-      </header>
+      <RiotModuleHeading
+        className="science-page-heading"
+        kickerClassName="science-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / SCIENCE + RESEARCH</>}
+        title={<>MATTER, <em>ORBIT,</em> LIFE</>}
+        description="A research workspace for cosmic systems, physics, biology, and responsible R&D project discovery."
+        notice={<div className="science-demo-badge"><span>SYNTHETIC RESEARCH DATA</span><b>NO LIVE LAB SYSTEMS</b><small>Sample catalogue · not scientific results</small></div>}
+      />
 
       <section className="science-overview" aria-label="Science research overview">
         <div className="science-overview-copy"><span className="science-index">00 / RESEARCH FRAME</span><h2>Explore questions, not claims</h2><p>A structured index for topics, sources, and review stages—without implying live research or verified findings.</p><span className="science-scope"><ShieldCheck aria-hidden="true"/> PROVENANCE FIRST</span></div>

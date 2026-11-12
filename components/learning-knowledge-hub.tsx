@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { ArrowUpRight, BookOpen, Briefcase, CircleAlert, FileText, Globe, GraduationCap, Library, Lightbulb, MapPin, Microscope, Network, Search, ShieldCheck, Users } from 'lucide-react'
 import type { LearningDomain } from '@/components/learning-domain-panel'
 import { LearningDomainPanel } from '@/components/learning-domain-panel'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 const regions = ['All regions', 'North district', 'Metro core', 'Coastline']
 const periods = ['30D', '90D', 'YEAR']
@@ -72,14 +73,14 @@ export function LearningKnowledgeHub() {
 
   return (
     <div className="learning-hub">
-      <header className="learning-page-heading">
-        <div>
-          <span className="learning-kicker"><i /> R!OT OPS / LEARNING + KNOWLEDGE</span>
-          <h1>KNOWLEDGE IS <em>INFRASTRUCTURE</em></h1>
-          <p>Education, research, shared knowledge, media literacy, and skills—connected as one learning ecosystem.</p>
-        </div>
-        <div className="learning-demo-badge"><span>PROTOTYPE DATA</span><b>NOT OFFICIAL OR LIVE</b><small>Interface planning only</small></div>
-      </header>
+      <RiotModuleHeading
+        className="learning-page-heading"
+        kickerClassName="learning-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / LEARNING + KNOWLEDGE</>}
+        title={<>KNOWLEDGE IS <em>INFRASTRUCTURE</em></>}
+        description="Education, research, shared knowledge, media literacy, and skills—connected as one learning ecosystem."
+        notice={<div className="learning-demo-badge"><span>PROTOTYPE DATA</span><b>NOT OFFICIAL OR LIVE</b><small>Interface planning only</small></div>}
+      />
 
       <section className="learning-filter-bar" aria-label="Learning and knowledge filters">
         <div className="learning-filter-region" role="group" aria-label="Sample region">

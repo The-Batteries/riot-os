@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { Activity, ArrowDownRight, ArrowUpRight, Building2, CalendarDays, CircleAlert, FileText, HeartPulse, Landmark, Leaf, MapPin, Scale, Shield, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { CivicDomainPanel, type CivicDomain } from '@/components/civic-domain-panel'
+import { RiotModuleHeading } from '@/components/riot-design-system'
 
 const regions = ['All regions', 'North district', 'Metro core', 'Coastline']
 const periods = ['24H', '7D', '30D']
@@ -69,14 +70,14 @@ export function CivicIntelligenceHub() {
 
   return (
     <div className="civic-hub">
-      <header className="civic-page-heading">
-        <div>
-          <span className="civic-kicker"><i /> R!OT OPS / CIVIC INTELLIGENCE</span>
-          <h1>PUBLIC SYSTEMS <em>UNDER THE LENS</em></h1>
-          <p>Governance, law, public services, economy, health, education, safety, and environment.</p>
-        </div>
-        <div className="civic-demo-badge"><span>PROTOTYPE DATA</span><b>NOT OFFICIAL OR LIVE</b><small>For interface planning only</small></div>
-      </header>
+      <RiotModuleHeading
+        className="civic-page-heading"
+        kickerClassName="civic-kicker"
+        kicker={<><i aria-hidden="true" /> R!OT OPS / CIVIC INTELLIGENCE</>}
+        title={<>PUBLIC SYSTEMS <em>UNDER THE LENS</em></>}
+        description="Governance, law, public services, economy, health, education, safety, and environment."
+        notice={<div className="civic-demo-badge"><span>PROTOTYPE DATA</span><b>NOT OFFICIAL OR LIVE</b><small>For interface planning only</small></div>}
+      />
 
       <section className="civic-control-bar" aria-label="Civic dashboard filters">
         <div className="civic-region-picker" role="group" aria-label="Sample region">

@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'MOONWITNESS / R!OT OS — Global World Monitor',
-  description: 'A global signal dashboard for trends, instability, weather, and regional watch indicators.',
+  title: 'MOONWITNESS / R!OT OS — Modular Operations Workspace',
+  description: 'A unified workspace for projects, tasks, creative operations, and research modules.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#111111',
+  colorScheme: 'light',
+  themeColor: '#eee7d9',
 }
 
 export default function RootLayout({
