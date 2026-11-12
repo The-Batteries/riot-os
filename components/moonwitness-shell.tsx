@@ -14,6 +14,14 @@ const items = [
   { label: 'The Receipts', href: '/projects', icon: Archive },
 ]
 
+export function RiotCrashTags() {
+  return <div className="mw-crash-tags" aria-hidden="true">
+    <span className="mw-crash-sticker mw-crash-red">NO<br/>PERMISSION</span>
+    <span className="mw-crash-sticker mw-crash-lime">SHIPPED<br/>ANYWAY</span>
+    <span className="mw-crash-sticker mw-crash-paper">R!OT<br/><b>OVERRIDE</b></span>
+  </div>
+}
+
 export function RiotVectorField() {
   return <svg className="mw-vector-chaos" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
     <defs><pattern id="riot-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="currentColor"/></pattern></defs>
@@ -37,5 +45,5 @@ export function MoonwitnessShell({ active, children }: { active: string; childre
 }
 
 export function PageHero({ title, accent, description, image, index }: { title: string; accent: string; description: string; image: string; index: string }) {
-  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.96) 0%, rgba(10,10,10,.84) 43%, rgba(10,10,10,.14) 100%), url('${image}')` }}><RiotVectorField/><div className="mw-inner-copy"><span className="mw-kicker"><i/> MOONWITNESS R!OT OPS · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">MAKE A MESS&nbsp; // &nbsp;MAKE A MOVE&nbsp; // &nbsp;SHIP IT LOUD</span></div><span className="mw-hero-index">MW / {index}</span></section>
+  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.96) 0%, rgba(10,10,10,.84) 43%, rgba(10,10,10,.14) 100%), url('${image}')` }}><RiotVectorField/><RiotCrashTags/><div className="mw-inner-copy"><span className="mw-kicker"><i/> MOONWITNESS R!OT OPS · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">MAKE A MESS&nbsp; // &nbsp;MAKE A MOVE&nbsp; // &nbsp;SHIP IT LOUD</span></div><span className="mw-hero-index">MW / {index}</span></section>
 }
