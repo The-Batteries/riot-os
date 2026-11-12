@@ -1,4 +1,5 @@
 import { ArrowDownRight, ArrowRight, Crown } from 'lucide-react'
+import { RiotVectorField } from '@/components/moonwitness-shell'
 
 const landingImage = '/images/riot-zine-hero.png'
 
@@ -16,7 +17,7 @@ export default function LandingPage() {
         <nav aria-label="Main navigation"><a href="#projects">The projects</a><a href="/projects">The pit</a><a href="/mission-control">Task riot</a><a href="#manifesto">Manifesto</a></nav>
         <a className="mw-nav-join" href="/login">GET IN THE PIT <span>↗</span></a>
       </header>
-      <section className="mw-landing-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.82) 43%, rgba(10,10,10,.18) 100%), url('${landingImage}')` }} aria-label="Moonwitness R!OT: project management for people who hate project management">
+      <section className="mw-landing-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.95) 0%, rgba(10,10,10,.82) 43%, rgba(10,10,10,.18) 100%), url('${landingImage}')` }} aria-label="Moonwitness R!OT: project management for people who hate project management"><RiotVectorField/>
         <div className="mw-hero-copy"><span className="mw-kicker"><i/> PROJECT MANAGEMENT FOR THE UNMANAGEABLE</span><h1>MAKE<br/><span>GOOD TROUBLE.</span></h1><strong className="mw-yellow-swipe">NO GANTT. NO GURU. JUST SHIPPED.</strong><p>Turn the 2 a.m. brain-splinter into a real thing.<br/><em>Dump it. Break it. Build it. Ship it.</em></p><div className="mw-hero-actions"><a className="mw-paint-button" href="/projects">START A PROJECT <ArrowRight aria-hidden="true"/></a><a className="mw-video-link" href="#manifesto"><ArrowDownRight aria-hidden="true"/> READ THE RIOT RULES</a></div></div>
         <div className="mw-hero-note">IDEAS GET LOUD<br/>DEADLINES GET REAL<br/><b>R!OT</b></div>
         <div className="mw-hero-caption">A LITTLE CHAOS.<br/>A LOT OF FOLLOW-THROUGH.</div>

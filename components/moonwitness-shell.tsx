@@ -14,6 +14,15 @@ const items = [
   { label: 'The Receipts', href: '/projects', icon: Archive },
 ]
 
+export function RiotVectorField() {
+  return <svg className="mw-vector-chaos" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
+    <defs><pattern id="riot-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="currentColor"/></pattern></defs>
+    <g className="mw-vector-orbit"><circle cx="385" cy="208" r="143" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 9"/><ellipse cx="385" cy="208" rx="205" ry="75" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="22 8 2 8" transform="rotate(-31 385 208)"/><path d="M241 73 357 112 477 49 441 171 512 278 378 254 286 345 275 218 190 133Z" fill="none" stroke="currentColor" strokeWidth="2"/><path d="m363 73 18 91 64-61-38 82 96 6-91 25 62 68-85-48-13 97-22-92-71 61 48-85-92-12 89-24-61-69 85 48Z" fill="currentColor" opacity=".78"/></g>
+    <g className="mw-vector-crosses" fill="none" stroke="currentColor" strokeWidth="3"><path d="M105 75v44m-22-22h44M465 326v34m-17-17h34M145 285v20m-10-10h20"/><path d="m430 75 18 18m0-18-18 18M205 60l14 14m0-14-14 14"/></g>
+    <circle className="mw-vector-signal" cx="385" cy="208" r="69" fill="url(#riot-dots)"/>
+  </svg>
+}
+
 export function MoonwitnessShell({ active, children }: { active: string; children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
   return <main className="mw-app-shell">
@@ -28,5 +37,5 @@ export function MoonwitnessShell({ active, children }: { active: string; childre
 }
 
 export function PageHero({ title, accent, description, image, index }: { title: string; accent: string; description: string; image: string; index: string }) {
-  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.96) 0%, rgba(10,10,10,.84) 43%, rgba(10,10,10,.14) 100%), url('${image}')` }}><div className="mw-inner-copy"><span className="mw-kicker"><i/> MOONWITNESS R!OT OPS · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">MAKE A MESS&nbsp; // &nbsp;MAKE A MOVE&nbsp; // &nbsp;SHIP IT LOUD</span></div><span className="mw-hero-index">MW / {index}</span></section>
+  return <section className="mw-inner-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.96) 0%, rgba(10,10,10,.84) 43%, rgba(10,10,10,.14) 100%), url('${image}')` }}><RiotVectorField/><div className="mw-inner-copy"><span className="mw-kicker"><i/> MOONWITNESS R!OT OPS · {index}</span><h1>{title} <em>{accent}</em></h1><p>{description}</p><span className="mw-scribble">MAKE A MESS&nbsp; // &nbsp;MAKE A MOVE&nbsp; // &nbsp;SHIP IT LOUD</span></div><span className="mw-hero-index">MW / {index}</span></section>
 }
