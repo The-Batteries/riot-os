@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'MOONWITNESS / R!OT OS — Customer, Cloud & Network Operations',
-  description: 'A creative operations workspace for customer support, CRM, customer experience, cloud infrastructure, and ISP / telco operations.',
+  title: 'MOONWITNESS / R!OT OS — Global World Monitor',
+  description: 'A global signal dashboard for trends, instability, weather, and regional watch indicators.',
   generator: 'v0.app',
   icons: {
     icon: [
