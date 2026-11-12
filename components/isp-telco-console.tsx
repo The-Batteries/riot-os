@@ -19,6 +19,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import { ispTelcoLinks, type IspTelcoServiceKey } from '@/components/isp-telco-menu'
+import { PageHero } from '@/components/moonwitness-shell'
 
 type TelcoEntry = {
   title: string
@@ -141,18 +142,28 @@ const pageConfigs: Record<IspTelcoServiceKey, TelcoPageConfig> = {
 export function IspTelcoConsole({ service }: { service: IspTelcoServiceKey | 'overview' }) {
   const config = service === 'overview' ? overviewConfig : pageConfigs[service]
   const Icon = config.icon
+  const heroTitleWords = config.title.split(' ')
+  const heroAccent = heroTitleWords.pop() ?? 'TELCO'
+  const heroTitle = heroTitleWords.join(' ') || 'ISP'
+  const heroIndex = config.code.split(' / ')[0]
 
   return (
-    <section className="telco-console" aria-labelledby="telco-console-title">
-      <header className="telco-console-head">
-        <div>
-          <span className="telco-console-kicker"><Icon aria-hidden="true" /> R!OT NETWORK OPERATIONS / {config.code}</span>
-          <h1 id="telco-console-title">{config.title}</h1>
-          <h2>{config.subtitle}</h2>
-          <p>{config.description}</p>
-        </div>
-        <span className="telco-demo-flag"><i /> OPERATOR MOCKUP / NOT CONNECTED</span>
-      </header>
+    <>
+      <PageHero
+        title={heroTitle}
+        accent={heroAccent}
+        index={heroIndex}
+        image="/images/riot-zine-hero.png"
+        description={config.subtitle}
+      />
+      <section className="telco-console" aria-label={`${config.title} operations`}>
+        <header className="telco-console-head">
+          <div>
+            <span className="telco-console-kicker"><Icon aria-hidden="true" /> R!OT NETWORK OPERATIONS / {config.code}</span>
+            <p className="telco-console-description">{config.description}</p>
+          </div>
+          <span className="telco-demo-flag"><i /> OPERATOR MOCKUP / NOT CONNECTED</span>
+        </header>
 
       <nav className="telco-console-tabs" aria-label="ISP and telco sections">
         <Link href="/isp-telco" className={service === 'overview' ? 'active' : ''} aria-current={service === 'overview' ? 'page' : undefined}>
@@ -214,8 +225,9 @@ export function IspTelcoConsole({ service }: { service: IspTelcoServiceKey | 'ov
         </section>
       )}
 
-      <footer className="telco-console-foot"><span><Network aria-hidden="true"/> ISP / TELCO SERVICE DECK</span><span><CheckCircle2 aria-hidden="true"/> ALL COUNTS ARE ILLUSTRATIVE</span><span><Clock3 aria-hidden="true"/> LAST SAMPLE REFRESH · JUST NOW</span></footer>
-    </section>
+        <footer className="telco-console-foot"><span><Network aria-hidden="true"/> ISP / TELCO SERVICE DECK</span><span><CheckCircle2 aria-hidden="true"/> ALL COUNTS ARE ILLUSTRATIVE</span><span><Clock3 aria-hidden="true"/> LAST SAMPLE REFRESH · JUST NOW</span></footer>
+      </section>
+    </>
   )
 }
 

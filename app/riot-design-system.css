@@ -571,6 +571,156 @@
   background: var(--riot-paper);
 }
 
+.riot-design-system .mw-page-content > .telco-console {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin: 18px 0 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
+  color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(h1, h2, h3, h4, p, span, small, b, strong, em, label) {
+  color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(h3, h4) {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(p, small, .telco-entry-copy small) {
+  color: var(--riot-muted);
+}
+
+.riot-design-system .mw-page-content .telco-console .telco-console-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 12px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--riot-line);
+  background: transparent;
+}
+
+.riot-design-system .mw-page-content .telco-console-kicker,
+.riot-design-system .mw-page-content .telco-console .telco-panel-kicker {
+  color: var(--riot-teal);
+  font: 700 12px/1.3 'Kalam', 'Patrick Hand', cursive;
+  letter-spacing: 0.04em;
+}
+
+.riot-design-system .mw-page-content .telco-console-description {
+  max-width: 660px;
+  margin: 5px 0 0;
+  color: var(--riot-muted);
+  font: 14px/1.4 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-demo-flag,
+.riot-design-system .mw-page-content .telco-console .telco-panel-count {
+  border: 1px dashed var(--riot-line);
+  border-radius: 2px;
+  background: var(--riot-surface-raised);
+  color: var(--riot-teal);
+  font: 700 11px/1.3 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-console-tabs {
+  border: 1px solid var(--riot-line);
+  border-radius: 2px;
+  background: var(--riot-surface-raised);
+  box-shadow: none;
+}
+
+.riot-design-system .mw-page-content .telco-console-tabs a {
+  border-color: transparent;
+  background: transparent;
+  color: var(--riot-muted);
+  font: 13px 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-console-tabs a.active {
+  border-color: var(--riot-line);
+  background: var(--riot-surface);
+  color: var(--riot-ink);
+  box-shadow: inset 0 -2px var(--riot-rose);
+}
+
+.riot-design-system .mw-page-content .telco-console :is(
+  .telco-metric,
+  .telco-fabric-panel,
+  .telco-queue-panel,
+  .telco-topology-panel,
+  .telco-inventory-panel,
+  .telco-entry
+) {
+  border: 1px solid var(--riot-line);
+  border-radius: 2px;
+  background: var(--riot-surface);
+  box-shadow: var(--riot-shadow);
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-metric, .telco-fabric-node, .telco-entry-icon, .telco-entry-state) {
+  color: var(--riot-ink);
+}
+
+.riot-design-system .mw-page-content .telco-console .telco-metric {
+  border-top-width: 3px;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-metric.lime, .telco-fabric-node.lime, .telco-entry-icon.lime, .telco-entry-state.lime) {
+  border-color: var(--riot-sage);
+  background-color: #dfe5d7;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-metric.blue, .telco-fabric-node.blue, .telco-entry-icon.blue, .telco-entry-state.blue) {
+  border-color: var(--riot-teal);
+  background-color: #dce7e2;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-metric.red, .telco-fabric-node.red, .telco-entry-icon.red, .telco-entry-state.red) {
+  border-color: var(--riot-rose);
+  background-color: #ead9d4;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-metric.paper, .telco-fabric-node.paper, .telco-entry-icon.paper, .telco-entry-state.paper) {
+  border-color: var(--riot-ochre);
+  background-color: #eee4d0;
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-entry-icon, .telco-entry-state) {
+  border-radius: 2px;
+}
+
+.riot-design-system .mw-page-content .telco-console .telco-panel-link,
+.riot-design-system .mw-page-content .telco-console .telco-console-foot {
+  color: var(--riot-teal);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .telco-console .telco-console-foot {
+  border-top: 1px solid var(--riot-line);
+}
+
+.riot-design-system .mw-page-content .telco-console :is(.telco-topology-note, .telco-inventory-foot) {
+  border-color: var(--riot-line);
+  color: var(--riot-muted);
+}
+
+.riot-design-system .mw-page-content .telco-console :is(a, button):focus-visible {
+  outline: 2px solid var(--riot-rose);
+  outline-offset: 3px;
+}
+
 .riot-design-system :is(a, button, input, textarea, select):focus-visible {
   outline: 2px solid var(--riot-rose);
   outline-offset: 3px;
