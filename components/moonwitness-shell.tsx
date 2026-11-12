@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Activity, Archive, Bell, ChevronDown, Cloud, Compass, Crown, FolderKanban, Home, Menu, PenTool, Search, Settings2, Users, X } from 'lucide-react'
+import { Activity, Archive, Bell, ChevronDown, Cloud, Compass, Crown, FolderKanban, Home, Menu, Network, PenTool, Search, Settings2, Users, X } from 'lucide-react'
 import { CloudServiceSubmenu } from '@/components/cloud-service-menu'
+import { IspTelcoSubmenu } from '@/components/isp-telco-menu'
 
 const items = [
   { label: 'R!OT Board', href: '/dashboard', icon: Home },
   { label: 'Cloud / Infra', href: '/infrastructure', icon: Cloud },
+  { label: 'ISP / Telco', href: '/isp-telco', icon: Network },
   { label: 'Project Pit', href: '/projects', icon: FolderKanban },
   { label: 'Task Riot', href: '/mission-control', icon: Compass },
   { label: 'The Workshop', href: '/projects', icon: PenTool },
@@ -36,10 +38,11 @@ export function RiotVectorField() {
 export function MoonwitnessShell({ active, children }: { active: string; children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [infraExpanded, setInfraExpanded] = useState(active.startsWith('Cloud / Infra'))
+  const [telcoExpanded, setTelcoExpanded] = useState(active.startsWith('ISP / Telco'))
   return <main className="mw-app-shell">
     <aside className={`mw-app-sidebar ${menuOpen ? 'is-open' : ''}`}>
       <Link href="/" className="mw-app-brand"><span><Crown aria-hidden="true"/></span><b>MOON<span>WITNESS</span></b><small>R!OT OS · ANTI-MANAGEMENT MANAGEMENT</small></Link>
-      <nav aria-label="Workspace"><span className="mw-nav-label">PICK YOUR BATTLE</span>{items.map(({ label, href, icon: Icon }) => label === 'Cloud / Infra' ? <div className="mw-nav-group" key={label}><div className={`mw-nav-parent ${active.startsWith('Cloud / Infra') ? 'active' : ''}`}><Link href={href} onClick={() => setMenuOpen(false)} className={`mw-side-link ${active.startsWith('Cloud / Infra') ? 'active' : ''}`}><Icon size={17}/><span>{label}</span></Link><button type="button" className="mw-nav-toggle" aria-label={`${infraExpanded ? 'Collapse' : 'Expand'} Cloud / Infra menu`} aria-expanded={infraExpanded} aria-controls="shell-cloud-services" onClick={() => setInfraExpanded((open) => !open)}><ChevronDown aria-hidden="true"/></button></div>{infraExpanded && <div id="shell-cloud-services"><CloudServiceSubmenu active={active} variant="shell" onNavigate={() => setMenuOpen(false)}/></div>}</div> : <Link key={label} href={href} onClick={() => setMenuOpen(false)} className={`mw-side-link ${active === label ? 'active' : ''}`}><Icon size={17}/><span>{label}</span></Link>)}</nav>
+      <nav aria-label="Workspace"><span className="mw-nav-label">PICK YOUR BATTLE</span>{items.map(({ label, href, icon: Icon }) => label === 'Cloud / Infra' ? <div className="mw-nav-group" key={label}><div className={`mw-nav-parent ${active.startsWith('Cloud / Infra') ? 'active' : ''}`}><Link href={href} onClick={() => setMenuOpen(false)} className={`mw-side-link ${active.startsWith('Cloud / Infra') ? 'active' : ''}`}><Icon size={17}/><span>{label}</span></Link><button type="button" className="mw-nav-toggle" aria-label={`${infraExpanded ? 'Collapse' : 'Expand'} Cloud / Infra menu`} aria-expanded={infraExpanded} aria-controls="shell-cloud-services" onClick={() => setInfraExpanded((open) => !open)}><ChevronDown aria-hidden="true"/></button></div>{infraExpanded && <div id="shell-cloud-services"><CloudServiceSubmenu active={active} variant="shell" onNavigate={() => setMenuOpen(false)}/></div>}</div> : label === 'ISP / Telco' ? <div className="mw-nav-group" key={label}><div className={`mw-nav-parent ${active.startsWith('ISP / Telco') ? 'active' : ''}`}><Link href={href} onClick={() => setMenuOpen(false)} className={`mw-side-link ${active.startsWith('ISP / Telco') ? 'active' : ''}`}><Icon size={17}/><span>{label}</span></Link><button type="button" className="mw-nav-toggle" aria-label={`${telcoExpanded ? 'Collapse' : 'Expand'} ISP / Telco menu`} aria-expanded={telcoExpanded} aria-controls="shell-isp-services" onClick={() => setTelcoExpanded((open) => !open)}><ChevronDown aria-hidden="true"/></button></div>{telcoExpanded && <div id="shell-isp-services"><IspTelcoSubmenu active={active} variant="shell" onNavigate={() => setMenuOpen(false)}/></div>}</div> : <Link key={label} href={href} onClick={() => setMenuOpen(false)} className={`mw-side-link ${active === label ? 'active' : ''}`}><Icon size={17}/><span>{label}</span></Link>)}</nav>
       <div className="mw-sidebar-bottom"><span className="mw-status-dot"/> All systems operational<Link href="/login" aria-label="Crew login"><Settings2 size={16}/></Link></div>
     </aside>
     {menuOpen && <button className="mw-menu-scrim" onClick={() => setMenuOpen(false)} aria-label="Close navigation"/>}

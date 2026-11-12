@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'MOONWITNESS / R!OT OS — Anti-management project control',
-  description: 'The loud, messy project workspace for big ideas, weird teams, real deadlines, and actually shipping the thing.',
+  title: 'MOONWITNESS / R!OT OS — Project, Cloud & ISP Operations',
+  description: 'A creative operations workspace with cloud infrastructure and ISP / telco network operations consoles.',
   generator: 'v0.app',
   icons: {
     icon: [
