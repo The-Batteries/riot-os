@@ -4,11 +4,12 @@ import { useMemo, useState } from 'react'
 import { CloudInfrastructure } from '@/components/cloud-infrastructure'
 import { CloudServiceSubmenu } from '@/components/cloud-service-menu'
 import { IspTelcoSubmenu } from '@/components/isp-telco-menu'
+import { CustomerOpsSubmenu } from '@/components/customer-ops-menu'
 import {
   Activity, AlertTriangle, Archive, ArrowDownRight, ArrowRight, ArrowUpRight,
   Bell, BookOpen, CheckCircle2, ChevronDown, CirclePlus, Cloud, Compass, Crown, Eye,
   FileImage, Filter, Globe2, Home, Image, Layers3, Menu, MessageSquare,
-  MoreHorizontal, Network, PenTool, Search, Send, Settings2, ShieldAlert, Sparkles,
+  MoreHorizontal, Network, Headphones, PenTool, Search, Send, Settings2, ShieldAlert, Sparkles,
   Users, X, Zap,
 } from 'lucide-react'
 
@@ -18,7 +19,7 @@ const image = (id: string, _width = 500) => {
   return '/images/riot-zine-hero.png'
 }
 const nav = [
-  { label: 'R!OT Board', href: '/dashboard', icon: Home }, { label: 'Cloud / Infra', href: '/infrastructure', icon: Cloud }, { label: 'ISP / Telco', href: '/isp-telco', icon: Network }, { label: 'Project Pit', href: '/projects', icon: PenTool },
+  { label: 'R!OT Board', href: '/dashboard', icon: Home }, { label: 'Cloud / Infra', href: '/infrastructure', icon: Cloud }, { label: 'ISP / Telco', href: '/isp-telco', icon: Network }, { label: 'Customer Ops', href: '/customer-ops', icon: Headphones }, { label: 'Project Pit', href: '/projects', icon: PenTool },
   { label: 'Activity Feed', href: '/mission-control', icon: Activity }, { label: 'Asset Stash', href: '/projects', icon: Image },
   { label: 'The Posse', href: '/projects', icon: Users }, { label: 'Stand-up', href: '/mission-control', icon: MessageSquare },
   { label: 'The Receipts', href: '/projects', icon: Archive }, { label: 'Next Up', href: '/mission-control', icon: CirclePlus, badge: '12' },
@@ -64,6 +65,7 @@ export default function Page() {
   const [mobileNav, setMobileNav] = useState(false)
   const [infraExpanded, setInfraExpanded] = useState(false)
   const [telcoExpanded, setTelcoExpanded] = useState(false)
+  const [customerExpanded, setCustomerExpanded] = useState(false)
   const filteredStories = useMemo(() => stories.filter(s => s.title.toLowerCase().includes(query.toLowerCase())), [query])
   const notify = (text: string) => { setNotice(text); window.setTimeout(() => setNotice(''), 2600) }
   return (
@@ -71,7 +73,7 @@ export default function Page() {
       <aside className={`sidebar ${mobileNav ? 'sidebar-open' : ''}`}>
         <a className="brand" href="/" aria-label="Moonwitness R!OT OS home"><span className="brand-crown"><Crown size={30}/></span><span>MOONWITNESS</span><small>R!OT OS</small></a>
         <div className="side-rule"/>
-        <nav aria-label="Main navigation">{nav.map(({ label, href, icon: Icon, badge }) => label === 'Cloud / Infra' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('Cloud / Infra') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${infraExpanded ? 'Collapse' : 'Expand'} Cloud / Infra menu`} aria-expanded={infraExpanded} aria-controls="board-cloud-services" onClick={() => setInfraExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{infraExpanded && <div id="board-cloud-services"><CloudServiceSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : label === 'ISP / Telco' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('ISP / Telco') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${telcoExpanded ? 'Collapse' : 'Expand'} ISP / Telco menu`} aria-expanded={telcoExpanded} aria-controls="board-isp-services" onClick={() => setTelcoExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{telcoExpanded && <div id="board-isp-services"><IspTelcoSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : <a key={label} href={href} onClick={() => { setActive(label); setMobileNav(false) }} className={`nav-item ${active === label ? 'selected' : ''}`}><Icon size={17}/><span>{label}</span>{badge && <b className="nav-badge">{badge}</b>}</a>)}</nav>
+        <nav aria-label="Main navigation">{nav.map(({ label, href, icon: Icon, badge }) => label === 'Cloud / Infra' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('Cloud / Infra') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${infraExpanded ? 'Collapse' : 'Expand'} Cloud / Infra menu`} aria-expanded={infraExpanded} aria-controls="board-cloud-services" onClick={() => setInfraExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{infraExpanded && <div id="board-cloud-services"><CloudServiceSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : label === 'ISP / Telco' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('ISP / Telco') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${telcoExpanded ? 'Collapse' : 'Expand'} ISP / Telco menu`} aria-expanded={telcoExpanded} aria-controls="board-isp-services" onClick={() => setTelcoExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{telcoExpanded && <div id="board-isp-services"><IspTelcoSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : label === 'Customer Ops' ? <div className="nav-group" key={label}><div className={`nav-infra-row ${active.startsWith('Customer Ops') ? 'selected' : ''}`}><a href={href} onClick={() => { setActive(label); setMobileNav(false) }} className="nav-item"><Icon size={17}/><span>{label}</span></a><button type="button" className="nav-infra-toggle" aria-label={`${customerExpanded ? 'Collapse' : 'Expand'} Customer Ops menu`} aria-expanded={customerExpanded} aria-controls="board-customer-services" onClick={() => setCustomerExpanded((open) => !open)}><ChevronDown size={14}/></button></div>{customerExpanded && <div id="board-customer-services"><CustomerOpsSubmenu active={active} variant="board" onNavigate={() => setMobileNav(false)}/></div>}</div> : <a key={label} href={href} onClick={() => { setActive(label); setMobileNav(false) }} className={`nav-item ${active === label ? 'selected' : ''}`}><Icon size={17}/><span>{label}</span>{badge && <b className="nav-badge">{badge}</b>}</a>)}</nav>
         <div className="side-bottom"><div className="online-dot"/> <span>CHAOS: BEAUTIFULLY MANAGED</span><button aria-label="Settings"><Settings2 size={16}/></button></div>
       </aside>
       {mobileNav && <button className="scrim" aria-label="Close menu" onClick={() => setMobileNav(false)}/>}
