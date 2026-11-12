@@ -1,4 +1,4 @@
-/* Shared visual language for every workspace module. */
+/* Shared visual language: unify the canvas and surfaces without flattening module identity. */
 .riot-design-system {
   --riot-paper: #eee7d9;
   --riot-surface: #f5efe2;
@@ -10,7 +10,7 @@
   --riot-teal: #627e7c;
   --riot-ochre: #a3834f;
   --riot-sage: #718268;
-  --riot-shadow: 2px 3px 0 rgba(68, 59, 48, 0.2);
+  --riot-shadow: 2px 3px 0 rgba(68, 59, 48, 0.16);
   color: var(--riot-ink);
   font-family: 'Kalam', 'Patrick Hand', cursive;
 }
@@ -20,124 +20,14 @@
   background: var(--riot-paper);
 }
 
-.riot-design-system .mw-page-content {
-  color: var(--riot-ink);
-}
-
-.riot-design-system .riot-module-heading {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 22px;
-  margin: 4px 0 16px;
-  padding: 9px 0 17px;
-  border-bottom: 1px solid var(--riot-line);
-}
-
-.riot-design-system .riot-module-heading-copy {
-  min-width: 0;
-  max-width: 760px;
-}
-
-.riot-design-system .riot-module-kicker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--riot-teal);
-  font: 700 14px/1.2 'Kalam', cursive;
-  letter-spacing: 0.03em;
-}
-
-.riot-design-system .riot-module-title {
-  margin: 10px 0 5px;
-  color: var(--riot-ink);
-  font: 700 clamp(38px, 5vw, 62px)/0.92 'Caveat', cursive;
-  letter-spacing: -0.04em;
-}
-
-.riot-design-system .riot-module-title em {
-  color: var(--riot-rose);
-  font-style: normal;
-}
-
-.riot-design-system .riot-module-description {
-  max-width: 680px;
-  margin: 8px 0 0;
-  color: var(--riot-muted);
-  font: 15px/1.4 'Kalam', cursive;
-}
-
-.riot-design-system .mw-page-content :is(
-  .infra-section,
-  .infra-node,
-  .infra-control-plane,
-  [class*='-panel']:not([class*='-heading']):not([class*='-label']):not([class*='-kicker']),
-  [class*='-card']:not([class*='-heading']):not([class*='-header']):not([class*='-icon']):not([class*='-meta']):not([class*='-copy']):not([class*='-text']),
-  [class*='-inventory'],
-  [class$='-overview'],
-  [class$='-section'],
-  [class*='-stat-card'],
-  [class*='-metric']:not([class*='-copy']),
-  .mw-rough-panel
-) {
-  border-color: var(--riot-line);
+.riot-design-system .mw-app-topbar {
   background: var(--riot-surface);
-  box-shadow: var(--riot-shadow);
-  clip-path: none;
-  color: var(--riot-ink);
+  border-bottom-color: var(--riot-line);
 }
 
-.riot-design-system .mw-page-content :is(
-  h1, h2, h3, h4, p, span, small, b, strong, label, th, td
-) {
-  color: var(--riot-ink);
-  font-family: 'Kalam', 'Patrick Hand', cursive;
-}
-
-.riot-design-system .mw-page-content :is(p, small) {
-  color: var(--riot-muted);
-}
-
-.riot-design-system .mw-page-content :is(h2, h3, h4) {
-  font-family: 'Caveat', cursive;
-}
-
-.riot-design-system .mw-page-content :is(h1, h2, h3) em {
-  color: var(--riot-rose);
-  font-style: normal;
-}
-
-.riot-design-system .mw-page-content :is(
-  [class*='-status'], [class*='-state'], [class*='-level'], [class*='-pill']
-) {
-  color: var(--riot-teal);
-}
-
-.riot-design-system .mw-page-content :is(
-  .customer-ops-console,
-  .sales-growth-console,
-  .intelligence-console,
-  .isp-telco-console
-) {
-  margin: 4px auto 30px;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-  clip-path: none;
-  color: var(--riot-ink);
-}
-
-.riot-design-system .mw-page-content :is(
-  .customer-ops-console,
-  .sales-growth-console,
-  .intelligence-console,
-  .isp-telco-console
-)::before {
-  display: none;
-}
-
-.riot-design-system .mw-page-content :is(
+.riot-design-system .mw-app-main > :is(
   .creative-console,
+  .cloud-console,
   .finance-console,
   .world-monitor,
   .comms-hub,
@@ -146,17 +36,62 @@
   .faith-hub,
   .work-ops,
   .science-hub,
-  .infra-section,
   .customer-ops-console,
   .sales-growth-console,
   .intelligence-console,
-  .isp-telco-console
+  .telco-console
 ) {
+  box-sizing: border-box;
+  width: min(100%, 1480px);
+  min-width: 0;
+  margin: 0 auto 30px;
+  padding: 8px clamp(16px, 2.6vw, 36px) 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  clip-path: none;
   color: var(--riot-ink);
   font-family: 'Kalam', 'Patrick Hand', cursive;
 }
 
-.riot-design-system .mw-page-content :is(
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+)::before {
+  display: none;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(
+  .riot-module-heading,
+  .cloud-console-head,
   .creative-head,
   .finance-head,
   .world-monitor-heading,
@@ -169,230 +104,530 @@
   .customer-ops-head,
   .sales-growth-head,
   .intelligence-head,
-  .isp-telco-head
+  .telco-console-head
+) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 4px 0 18px;
+  padding: 8px 0 17px;
+  border-bottom: 1px solid var(--riot-line);
+  background: transparent;
+}
+
+.riot-design-system .riot-module-heading-copy {
+  min-width: 0;
+  max-width: 760px;
+}
+
+.riot-design-system .riot-module-title,
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(
+  .creative-head,
+  .finance-head,
+  .world-monitor-heading,
+  .comms-page-heading,
+  .civic-page-heading,
+  .learning-page-heading,
+  .faith-page-heading,
+  .work-page-heading,
+  .science-page-heading,
+  .customer-ops-head,
+  .sales-growth-head,
+  .intelligence-head,
+  .telco-console-head
 ) h1 {
+  margin: 9px 0 5px;
   color: var(--riot-ink);
-  font: 700 clamp(38px, 5vw, 62px)/0.92 'Caveat', cursive;
-  letter-spacing: -0.04em;
+  font: 700 clamp(38px, 5vw, 60px)/0.96 'Caveat', cursive;
+  letter-spacing: -0.035em;
 }
 
-.riot-design-system .mw-page-content :is(
-  .creative-head,
-  .finance-head,
-  .world-monitor-heading,
-  .comms-page-heading,
-  .civic-page-heading,
-  .learning-page-heading,
-  .faith-page-heading,
-  .work-page-heading,
-  .science-page-heading,
-  .customer-ops-head,
-  .sales-growth-head,
-  .intelligence-head,
-  .isp-telco-head
-) h1 em {
-  color: var(--riot-rose);
-}
-
-.riot-design-system .mw-page-content :is(
-  .creative-head,
-  .finance-head,
-  .world-monitor-heading,
-  .comms-page-heading,
-  .civic-page-heading,
-  .learning-page-heading,
-  .faith-page-heading,
-  .work-page-heading,
-  .science-page-heading,
-  .customer-ops-head,
-  .sales-growth-head,
-  .intelligence-head,
-  .isp-telco-head
-) p {
-  max-width: 680px;
-  color: var(--riot-muted);
-  font: 15px/1.4 'Kalam', cursive;
-}
-
-.riot-design-system .mw-page-content :is(
-  .creative-panel,
-  .finance-panel,
-  .world-panel,
-  .comms-panel,
-  .civic-domain-panel,
-  .learning-domain-panel,
-  .faith-domain-panel,
-  .work-panel,
-  .science-domain-panel,
-  .customer-panel,
-  .sales-growth-panel,
-  .intelligence-panel,
-  .isp-telco-panel,
-  .infra-node
-) :is(h2, h3, h4, p, small, span, b, strong, th, td, label) {
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(h1, h2, h3, h4, p, span, small, b, strong, label, th, td) {
   color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
 }
 
-.riot-design-system .mw-page-content :is(
-  .creative-panel,
-  .finance-panel,
-  .world-panel,
-  .comms-panel,
-  .civic-domain-panel,
-  .learning-domain-panel,
-  .faith-domain-panel,
-  .work-panel,
-  .science-domain-panel,
-  .customer-panel,
-  .sales-growth-panel,
-  .intelligence-panel,
-  .isp-telco-panel,
-  .infra-node
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
 ) :is(p, small) {
   color: var(--riot-muted);
 }
 
-.riot-design-system .mw-page-content :is(
-  .creative-panel,
-  .finance-panel,
-  .world-panel,
-  .comms-panel,
-  .civic-domain-panel,
-  .learning-domain-panel,
-  .faith-domain-panel,
-  .work-panel,
-  .science-domain-panel,
-  .customer-panel,
-  .sales-growth-panel,
-  .intelligence-panel,
-  .isp-telco-panel,
-  .infra-node
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
 ) :is(h2, h3, h4) {
   font-family: 'Caveat', cursive;
   font-weight: 700;
 }
 
-.riot-design-system .mw-page-content :is(
-  .creative-kicker,
-  .finance-kicker,
-  .world-monitor-kicker,
-  .comms-kicker,
-  .civic-kicker,
-  .learning-kicker,
-  .faith-kicker,
-  .work-kicker,
-  .science-kicker,
-  .customer-ops-kicker,
-  .sales-growth-kicker,
-  .intelligence-kicker,
-  .isp-telco-kicker,
-  [class$='-index'],
-  [class$='-panel-label']
-) {
-  color: var(--riot-teal);
-  font: 700 13px/1.25 'Kalam', cursive;
-  letter-spacing: 0.03em;
-}
-
-.riot-design-system .mw-page-content :is(
-  .creative-demo-flag,
-  .finance-demo-flag,
-  .world-monitor-demo,
-  .comms-demo-banner,
-  .civic-demo-badge,
-  .learning-demo-badge,
-  .faith-demo-badge,
-  .work-demo-badge,
-  .science-demo-badge,
-  [class$='-sample-pill'],
-  [class$='-sample-chip']
-) {
-  border-color: var(--riot-line);
-  background: var(--riot-surface-raised);
-  color: var(--riot-teal);
-  font-family: 'Kalam', cursive;
-  font-size: 12px;
-}
-
-.riot-design-system .mw-page-content :is(
-  .creative-demo-flag,
-  .finance-demo-flag,
-  .world-monitor-demo,
-  .comms-demo-banner,
-  .civic-demo-badge,
-  .learning-demo-badge,
-  .faith-demo-badge,
-  .work-demo-badge,
-  .science-demo-badge
-) :is(span, b, small) {
-  color: var(--riot-teal);
-  font: inherit;
-}
-
-.riot-design-system .mw-page-content :is(button, input, textarea, select) {
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(
+  section[class*='-panel'],
+  article[class*='-panel'],
+  div[class*='-panel'],
+  section[class*='-card'],
+  article[class*='-card'],
+  div[class*='-card'],
+  section[class*='-inventory'],
+  section[class*='-snapshot'],
+  section[class*='-priority'],
+  article[class*='-metric']
+):not([class*='-panel-label']):not([class*='-panel-link']):not([class*='-panel-kicker']):not([class*='-panel-copy']) {
   border-color: var(--riot-line);
   border-radius: 2px;
   background: var(--riot-surface);
+  box-shadow: var(--riot-shadow);
+  clip-path: none;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(
+  .riot-module-kicker,
+  [class$='-kicker'],
+  [class$='-index']
+) {
+  color: var(--riot-teal);
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(h1, h2, h3, h4) em {
+  color: var(--riot-rose);
+  font-style: normal;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(button, input, textarea, select) {
+  border-color: var(--riot-line);
+  border-radius: 2px;
+  background-color: var(--riot-surface);
   color: var(--riot-ink);
-  font-family: 'Kalam', cursive;
-  font-size: 14px;
+  font-family: 'Kalam', 'Patrick Hand', cursive;
 }
 
-.riot-design-system .mw-page-content :is(input, textarea, select) {
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(button.active, button.selected, a.active) {
+  border-color: var(--riot-rose);
+  background: #e5d5ce;
+  color: var(--riot-ink);
+  box-shadow: inset 0 -2px var(--riot-rose);
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) a:not([class*='-tab']):not([class*='-side']) {
+  color: var(--riot-teal);
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(.pink, .red) {
+  border-color: var(--riot-rose);
+  background-color: #ead9d4;
+  color: #70454a;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(.blue, .cyan) {
+  border-color: var(--riot-teal);
+  background-color: #dce7e2;
+  color: #3e615e;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(.lime, .green) {
+  border-color: var(--riot-sage);
+  background-color: #dfe5d7;
+  color: #4f6249;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is(.yellow, .ochre, .paper, .purple, .violet) {
+  border-color: var(--riot-ochre);
+  background-color: #eee4d0;
+  color: #685738;
+}
+
+.riot-design-system .mw-page-content .infra-section {
+  color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .infra-section :is(.infra-node, .infra-control-plane) {
+  border-color: var(--riot-line);
   background: var(--riot-surface);
+  box-shadow: var(--riot-shadow);
+  clip-path: none;
+  color: var(--riot-ink);
 }
 
-.riot-design-system .mw-page-content :is(button, a) {
-  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+.riot-design-system .mw-page-content .infra-section :is(h1, h2, h3, h4, p, span, small, b, strong, label) {
+  color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
 }
 
-.riot-design-system .mw-page-content :is(button, a):focus-visible,
-.riot-design-system .mw-app-shell a:focus-visible,
-.riot-design-system .mw-app-shell button:focus-visible,
-.riot-design-system .mw-app-shell input:focus-visible,
-.riot-design-system .mw-app-shell textarea:focus-visible,
-.riot-design-system .mw-app-shell select:focus-visible {
+.riot-design-system .mw-page-content .infra-section :is(h2, h3, h4) {
+  font-family: 'Caveat', cursive;
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is([class$='-tabs'], [class$='-control-bar'], [class$='-section-nav']) {
+  border-color: var(--riot-line);
+  border-radius: 2px;
+  background: var(--riot-surface-raised);
+}
+
+.riot-design-system .mw-app-main > :is(
+  .creative-console,
+  .cloud-console,
+  .finance-console,
+  .world-monitor,
+  .comms-hub,
+  .civic-hub,
+  .learning-hub,
+  .faith-hub,
+  .work-ops,
+  .science-hub,
+  .customer-ops-console,
+  .sales-growth-console,
+  .intelligence-console,
+  .telco-console
+) :is([class$='-demo-flag'], [class$='-demo-banner'], [class$='-demo-badge'], [class$='-demo']) {
+  border-color: var(--riot-line);
+  background: var(--riot-surface-raised);
+  color: var(--riot-teal);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-app-main > .cloud-console .cloud-console-title-wrap h2 {
+  margin: 9px 0 5px;
+  color: var(--riot-ink);
+  font: 700 clamp(38px, 5vw, 60px)/0.96 'Caveat', cursive;
+  letter-spacing: -0.035em;
+  text-shadow: none;
+  transform: none;
+}
+
+.riot-design-system .mw-page-content .infra-section {
+  box-sizing: border-box;
+  width: min(100%, 1480px);
+  margin: 8px auto 30px;
+  padding: 8px clamp(16px, 2.6vw, 36px) 30px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--riot-ink);
+  font-family: 'Kalam', 'Patrick Hand', cursive;
+}
+
+.riot-design-system .mw-page-content .infra-section::before {
+  display: none;
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-heading {
+  margin: 4px 0 18px;
+  padding: 8px 0 17px;
+  border-bottom: 1px solid var(--riot-line);
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-heading h2 {
+  color: var(--riot-ink);
+  font: 700 clamp(38px, 5vw, 60px)/0.96 'Caveat', cursive;
+  text-shadow: none;
+  transform: none;
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-heading p,
+.riot-design-system .mw-page-content .infra-section .infra-node p {
+  color: var(--riot-muted);
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-kicker {
+  color: var(--riot-teal);
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-ingress {
+  border-color: var(--riot-line);
+  color: var(--riot-rose);
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-wire {
+  color: var(--riot-teal);
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-wire span {
+  background: linear-gradient(90deg, transparent, var(--riot-teal), var(--riot-rose));
+}
+
+.riot-design-system .mw-page-content .infra-section .infra-wire svg {
+  background: var(--riot-paper);
+}
+
+.riot-design-system :is(a, button, input, textarea, select):focus-visible {
   outline: 2px solid var(--riot-rose);
   outline-offset: 3px;
 }
 
-.riot-design-system .mw-page-content :is(button.active, button.selected, a.active) {
-  border-color: var(--riot-rose);
-  background: #e5d5ce;
-  color: var(--riot-ink);
-  box-shadow: inset 0 -2px var(--riot-rose), var(--riot-shadow);
-}
-
-.riot-design-system .mw-page-content table {
-  border-color: var(--riot-line);
-  color: var(--riot-ink);
-  font-family: 'Kalam', cursive;
-  font-size: 13px;
-}
-
-.riot-design-system .mw-page-content :is(th, td) {
-  border-color: var(--riot-line);
-}
-
-.riot-design-system .mw-page-content a:not(.mw-side-link) {
-  color: var(--riot-teal);
-}
-
-.riot-design-system .mw-page-content .riot-module-heading a {
-  color: var(--riot-teal);
-}
-
 @media (max-width: 760px) {
-  .riot-design-system .riot-module-heading {
+  .riot-design-system .mw-app-main > :is(
+    .creative-console,
+    .finance-console,
+    .world-monitor,
+    .comms-hub,
+    .civic-hub,
+    .learning-hub,
+    .faith-hub,
+    .work-ops,
+    .science-hub,
+    .customer-ops-console,
+    .sales-growth-console,
+    .intelligence-console,
+    .telco-console
+  ) :is(
+    .riot-module-heading,
+    .creative-head,
+    .finance-head,
+    .world-monitor-heading,
+    .comms-page-heading,
+    .civic-page-heading,
+    .learning-page-heading,
+    .faith-page-heading,
+    .work-page-heading,
+    .science-page-heading,
+    .customer-ops-head,
+    .sales-growth-head,
+    .intelligence-head,
+    .telco-console-head
+  ) {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 12px;
-    padding: 6px 0 13px;
   }
 
   .riot-design-system .riot-module-title,
-  .riot-design-system .mw-page-content :is(
+  .riot-design-system .mw-app-main > :is(
+    .creative-console,
+    .finance-console,
+    .world-monitor,
+    .comms-hub,
+    .civic-hub,
+    .learning-hub,
+    .faith-hub,
+    .work-ops,
+    .science-hub,
+    .customer-ops-console,
+    .sales-growth-console,
+    .intelligence-console,
+    .telco-console
+  ) :is(
     .creative-head,
     .finance-head,
     .world-monitor-heading,
@@ -405,33 +640,14 @@
     .customer-ops-head,
     .sales-growth-head,
     .intelligence-head,
-    .isp-telco-head
+    .telco-console-head
   ) h1 {
     font-size: clamp(34px, 10vw, 48px);
-  }
-
-  .riot-design-system .riot-module-description,
-  .riot-design-system .mw-page-content :is(
-    .creative-head,
-    .finance-head,
-    .world-monitor-heading,
-    .comms-page-heading,
-    .civic-page-heading,
-    .learning-page-heading,
-    .faith-page-heading,
-    .work-page-heading,
-    .science-page-heading,
-    .customer-ops-head,
-    .sales-growth-head,
-    .intelligence-head,
-    .isp-telco-head
-  ) p {
-    font-size: 14px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .riot-design-system .mw-page-content :is(button, a) {
+  .riot-design-system :is(a, button) {
     scroll-behavior: auto;
     transition-duration: 0.01ms;
   }
