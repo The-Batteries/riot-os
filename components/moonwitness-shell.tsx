@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Activity, Archive, Bell, BrainCircuit, ChevronDown, CircleDollarSign, Cloud, Compass, Crown, FolderKanban, Globe, Home, Menu, Radio, Network, Headphones, PenTool, Search, Settings2, TrendingUp, Users, X } from 'lucide-react'
+import { Activity, Archive, Bell, BrainCircuit, ChevronDown, CircleDollarSign, Cloud, Compass, Crown, FolderKanban, Globe, Home, Landmark, Menu, Radio, Network, Headphones, PenTool, Search, Settings2, TrendingUp, Users, X } from 'lucide-react'
 import { CloudServiceSubmenu } from '@/components/cloud-service-menu'
 import { IspTelcoSubmenu } from '@/components/isp-telco-menu'
 import { CustomerOpsSubmenu } from '@/components/customer-ops-menu'
@@ -21,6 +21,7 @@ const items = [
   { label: 'Art & Creative', href: '/art-creative', icon: PenTool },
   { label: 'Accounting & Finance', href: '/accounting-finance', icon: CircleDollarSign },
   { label: 'World Monitor', href: '/world-monitor', icon: Globe },
+  { label: 'Civic / Governance', href: '/civic-intelligence', icon: Landmark },
   { label: 'Comms / Radio', href: '/comms', icon: Radio },
   { label: 'Project Pit', href: '/projects', icon: FolderKanban },
   { label: 'Task Riot', href: '/mission-control', icon: Compass },
